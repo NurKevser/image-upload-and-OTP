@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { OTPInput } from "../Email/OtpInput";
+import { OTPInput } from "../components/Email/OtpInput";
 import { Container, Button, Badge } from "reactstrap";
 import { LuCheckCircle } from "react-icons/lu";
 
@@ -18,7 +18,8 @@ const Email = () => {
     }
   };
   return (
-    <Container className=" d-flex flex-column justify-content-center  align-items-center text-center ">
+    <Container className=" d-flex flex-column justify-content-center text-center align-items-center">
+      d-flex
       <div className="text-light mb-5">
         <LuCheckCircle size="70" />
         <h1 className=" my-5">Ready to create the future?</h1>

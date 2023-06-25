@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { RE_DIGIT } from "./constants";
 import { Input, Container } from "reactstrap";
-import "../styles/otpInput.css";
+import "../../styles/otpInput.css";
 
 export type Props = {
   value: string;

@@ -3,9 +3,7 @@ import Layout from "./layout/layout";
 
 const App = () => {
   return (
-    <div
-      className={`backgroundStyle d-flex justify-content-center text-center align-items-center h-100`}
-    >
+    <div className={`backgroundStyle h-100`}>
       <Layout />
     </div>
   );

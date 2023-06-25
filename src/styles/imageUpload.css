@@ -1,0 +1,61 @@
+.cropContainer {
+    position: relative;
+    width: 100%;
+    height: max-content;
+  }
+  
+  @media (min-width: 600px) {
+    .cropContainer {
+      height: 400px;
+    }
+  }
+  
+  .cropButton {
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  
+  .controls {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  @media (min-width: 600px) {
+    .controls {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .img-fluid {
+    width: 400px;
+    height: 400px;
+  }
+  
+  /* .sliderContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+   */
+  /* .sliderLabel {
+    @media (max-width: 599px) {
+      min-width: 65px;
+    }
+  }
+  
+  .slider {
+    padding: 22px 0px;
+    margin-left: 16px;
+  }
+   */
+  /* @media (min-width: 600px) {
+    .slider {
+      flex-direction: row;
+      align-items: center;
+      margin: 0 16px;
+    }
+  }
+   */
