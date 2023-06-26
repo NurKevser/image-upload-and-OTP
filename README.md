@@ -19,11 +19,3 @@ You will also see any lint errors in the console.
 Email verification: http://localhost:3000 (initial screen)\
 Image Upload: http://localhost:3000/image 
 
-
-## Preview
-<p align="center">
-  <img src=""C:\Users\kevser\Videos\Captures\React App - Google Chrome 2023-06-26 11-09-32.mp4""/>
-</p>
-
-
-
