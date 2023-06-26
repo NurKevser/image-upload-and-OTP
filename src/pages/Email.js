@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { OTPInput } from "../components/Email/OtpInput";
-import { Container, Button, Badge } from "reactstrap";
+import { Container, Button } from "reactstrap";
 import { LuCheckCircle } from "react-icons/lu";
 
 const Email = () => {

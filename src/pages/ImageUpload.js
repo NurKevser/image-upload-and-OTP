@@ -1,35 +1,40 @@
 import React, { useState, useCallback } from "react";
 import Cropper from "react-easy-crop";
-import { Button } from "reactstrap";
-
+import { Button, Input } from "reactstrap";
 import { getCroppedImg } from "../components/ImageUpload/canvasUtils";
 import "../styles/imageUpload.css";
 
 const ImageUpload = () => {
   const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
-  const [rotation, setRotation] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
+  const [aspect, setAspect] = useState(1 / 1);
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
+  const onZoomChange = (zoom) => {
+    setZoom(zoom);
+  };
+
+  const onAspectChange = (e) => {
+    const value = e.target.value;
+    const ratio = aspectRatios.find((ratio) => ratio.value == value);
+    setAspect(ratio.value);
+  };
+
   const showCroppedImage = useCallback(async () => {
     try {
-      const croppedImage = await getCroppedImg(
-        imageSrc,
-        croppedAreaPixels,
-        rotation
-      );
+      const croppedImage = await getCroppedImg(imageSrc, croppedAreaPixels);
       console.log("donee", { croppedImage });
       setCroppedImage(croppedImage);
     } catch (e) {
       console.error(e);
     }
-  }, [imageSrc, croppedAreaPixels, rotation]);
+  }, [imageSrc, croppedAreaPixels]);
 
   const hideCroppedImage = useCallback(async () => {
     try {
@@ -50,6 +55,12 @@ const ImageUpload = () => {
     }
   };
 
+  const aspectRatios = [
+    { value: 4 / 3, text: "4/3" },
+    { value: 16 / 9, text: "16/9" },
+    { value: 1 / 2, text: "1/2" },
+  ];
+
   return (
     <div className="">
       {imageSrc ? (
@@ -58,22 +69,53 @@ const ImageUpload = () => {
             <Cropper
               image={imageSrc}
               crop={crop}
-              rotation={rotation}
               zoom={zoom}
-              aspect={1 / 1}
+              aspect={aspect}
               onCropChange={setCrop}
-              onRotationChange={setRotation}
               onCropComplete={onCropComplete}
-              onZoomChange={setZoom}
+              onZoomChange={onZoomChange}
+              //   onCropSizeChange={""}
             />
           </div>
           <div className="controls">
+            <div className="sliderContainer">
+              <label className="sliderLabel">Zoom</label>
+              <Input
+                id="exampleRange"
+                name="range"
+                type="range"
+                value={zoom}
+                min={1}
+                max={3}
+                step={0.1}
+                onChange={(e) => setZoom(e.target.value)}
+              />
+            </div>
+            <div>
+              {" "}
+              <Input
+                id="exampleSelect"
+                name="select"
+                type="select"
+                onChange={onAspectChange}
+              >
+                {aspectRatios.map((ratio) => (
+                  <option
+                    key={ratio.text}
+                    value={ratio.value}
+                    selected={ratio.value === aspect}
+                  >
+                    {ratio.text}
+                  </option>
+                ))}
+              </Input>
+            </div>
             <Button
               onClick={showCroppedImage}
               color="primary"
               className="cropButton"
             >
-              Show Result
+              Crop
             </Button>
             <Button
               onClick={hideCroppedImage}

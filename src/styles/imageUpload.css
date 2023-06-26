@@ -34,13 +34,13 @@
     height: 400px;
   }
   
-  /* .sliderContainer {
+  .sliderContainer {
     display: flex;
     flex: 1;
     align-items: center;
   }
-   */
-  /* .sliderLabel {
+  
+  .sliderLabel {
     @media (max-width: 599px) {
       min-width: 65px;
     }
@@ -50,12 +50,11 @@
     padding: 22px 0px;
     margin-left: 16px;
   }
-   */
-  /* @media (min-width: 600px) {
+  
+  @media (min-width: 600px) {
     .slider {
       flex-direction: row;
       align-items: center;
       margin: 0 16px;
     }
   }
-   */
