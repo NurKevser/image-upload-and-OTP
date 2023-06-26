@@ -103,7 +103,7 @@ const ImageUpload = () => {
                   <option
                     key={ratio.text}
                     value={ratio.value}
-                    selected={ratio.value === aspect}
+                    defaultValue={ratio.value === aspect}
                   >
                     {ratio.text}
                   </option>
