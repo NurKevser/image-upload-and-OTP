@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### `To see the page`
 
-Email verification: http://localhost:3000 (initial screen)
+Email verification: http://localhost:3000 (initial screen)\
 Image Upload: http://localhost:3000/image 
 
 
