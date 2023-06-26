@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import Cropper from "react-easy-crop";
-import { Button, Input } from "reactstrap";
+import { Button, Input, Container } from "reactstrap";
 import { getCroppedImg } from "../components/ImageUpload/canvasUtils";
 import "../styles/imageUpload.css";
 
@@ -62,7 +62,7 @@ const ImageUpload = () => {
   ];
 
   return (
-    <div className="">
+    <Container className="d-flex flex-column justify-content-center align-items-center pt-5">
       {imageSrc ? (
         <React.Fragment>
           <div className="cropContainer">
@@ -135,7 +135,7 @@ const ImageUpload = () => {
           <img src={croppedImage} alt="Cropped" className="img-fluid" />
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 export default ImageUpload;

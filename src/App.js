@@ -3,7 +3,7 @@ import Layout from "./layout/layout";
 
 const App = () => {
   return (
-    <div className={`backgroundStyle h-100`}>
+    <div className={` h-100`}>
       <Layout />
     </div>
   );
